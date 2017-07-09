@@ -44,6 +44,11 @@
             border: 1px solid #aaa;
             border-radius: 15px;
         }
+        a{
+            font-family: comme;
+            font-weight: lighter;
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -53,7 +58,7 @@
         <blockquote></blockquote>
         <span></span>
         <br />
-        <button>Generate Quote!</button>
+        <button>Generate Quote!</button> <a target="_blank" href='#' type=button>Tweet This quote!</a>
     </div>
     <script>
     var quotes = [["Success is a lousy teacher. It seduces smart people into thinking they can't lose.",'Bill Gates'],
@@ -90,14 +95,25 @@
     ];
     var quoteHolder = document.getElementsByTagName('blockquote')[0];
     var authorHolder = document.getElementsByTagName('span')[0];
+    var tweetButton = document.getElementsByTagName('a')[0];
     function generateQuote(){
         var quote;
         while(true){
             quote = quotes[Math.floor(Math.random()*quotes.length)];
-            if(quote[0] != document.getElementsByTagName('blockquote')[0].innerHTML) break;
+            if(quote[0] != quoteHolder.innerHTML) break;
         }
         quoteHolder.innerHTML = quote[0];
         authorHolder.innerHTML = '-'+quote[1];
+        if(('"'+quote[0]+'"  '+'by: '+quote[1]).length < 140){
+             tweetButton.href = 'https://twitter.com/intent/tweet?p&text='+'"'+quote[0]+'"  '+'by: '+quote[1];
+             tweetButton.onclick = function(){};
+             tweetButton.target = '_blank';
+             }
+        else{
+            tweetButton.href = '#';
+            tweetButton.onclick = function(){alert('Sorry The Quote is too long!');};
+            tweetButton.target = '';
+        }
     }
     generateQuote()
     document.getElementsByTagName('button')[0].onclick = generateQuote;
