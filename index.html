@@ -3,20 +3,91 @@
 
 <head>
     <style>
-
+        @font-face {
+            font-family: comme;
+            src: url('./Comme-ExtraLight.ttf');
+        }
+        body{
+            background-color: #222;
+        }
+        h2{
+            font-family: comme;
+            font-weight: lighter;
+        }
+        div{
+            background-color: #ddd;
+            border-radius: 30px;
+            padding: 30px;
+            padding-top: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20vh;
+        }
+        blockquote{
+            width: 80%;
+            padding: 10px 10%;
+            text-align: left;
+            margin: 0;
+            border-left: 10px solid #555;
+        }
+        span{
+            color: #888;
+            font-size: 20px;
+        }
+        button{
+            margin-top: 30px;
+            margin-top: 3vh;
+            padding: 15px;
+            border: 1px solid #aaa;
+            border-radius: 15px;
+        }
     </style>
 </head>
 
 <body>
     <div>
-        <h3>Quote Generator</h3>
+        <h2>Quote Generator</h2>
         <blockquote></blockquote>
         <span></span>
         <br />
         <button>Generate Quote!</button>
     </div>
     <script>
-    var quotes = [['f','d'],['g','g']];
+    var quotes = [["Success is a lousy teacher. It seduces smart people into thinking they can't lose.",'Bill Gates'],
+    ['But man is not made for defeat. A man can be destroyed but not defeated.','Ernest Hemingway'],
+    ["I love you the more in that I believe you had liked me for my own sake and for nothing else.",'John Keats'],
+    ["When you reach the end of your rope, tie a knot in it and hang on.",'Franklin D. Roosevelt'],
+    ["There is nothing permanent except change.",'Heraclitus'],
+    ["You cannot shake hands with a clenched fist.",'Indira Gandhi'],
+    ["Let us sacrifice our today so that our children can have a better tomorrow.",'A. P. J. Abdul Kalam'],
+    ["It is better to be feared than loved, if you cannot be both.",'Niccolo Machiavelli'],
+    ["The most difficult thing is the decision to act, the rest is merely tenacity. The fears are paper tigers. You can do anything you decide to do. You can act to change and control your life; and the procedure, the process is its own reward.",'Amelia Earhart'],
+    ["Do not mind anything that anyone tells you about anyone else. Judge everyone and everything for yourself.",'Henry James'],
+    ["Learning never exhausts the mind.",'Leonardo da Vinci'],
+    ["There is no charm equal to tenderness of heart.",'Jane Austen'],
+    ["All that we see or seem is but a dream within a dream.",'Edgar Allan Poe'],
+    ["Lord, make me an instrument of thy peace. Where there is hatred, let me sow love.",'Francis of Assisi'],
+    ["The only journey is the one within.",'Rainer Maria Rilke'],
+    ["Good judgment comes from experience, and a lot of that comes from bad judgment.",'Will Rogers'],
+    ["Think in the morning. Act in the noon. Eat in the evening. Sleep in the night.",'William Blake'],
+    ["No act of kindness, no matter how small, is ever wasted.",'Aesop'],
+    ["Love cures people - both the ones who give it and the ones who receive it.",'Karl A. Menninger'],
+    ["Work like you don't need the money. Love like you've never been hurt. Dance like nobody's watching.",'Satchel Paige'],
+    ["It is far better to be alone, than to be in bad company.",'George Washington'],
+    ["If you cannot do great things, do small things in a great way.",'Napoleon Hill'],
+    ["Permanence, perseverance and persistence in spite of all obstacles, discouragements, and impossibilities: It is this, that in all things distinguishes the strong soul from the weak.",'Thomas Carlyle'],
+    ["Independence is happiness.",'Susan B. Anthony'],
+    ["The supreme art of war is to subdue the enemy without fighting.",'Sun Tzu'],
+    ["Keep your face always toward the sunshine - and shadows will fall behind you.",'Walt Whitman'],
+    ["Being entirely honest with oneself is a good exercise.",'Sigmund Freud'],
+    ["Happiness can exist only in acceptance.",'George Orwell'],
+    ["Love has no age, no limit; and no death.",'John Galsworthy'],
+    ["You can't blame gravity for falling in love.",'Albert Einstein'],
+    ["There is only one corner of the universe you can be certain of improving, and that's your own self.",'Aldous Huxley']
+    ];
     var quoteHolder = document.getElementsByTagName('blockquote')[0];
     var authorHolder = document.getElementsByTagName('span')[0];
     function generateQuote(){
